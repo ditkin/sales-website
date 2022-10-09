@@ -5,4 +5,5 @@ import preact from '@preact/preset-vite';
 export default defineConfig({
   plugins: [preact()],
   build: { outDir: 'docs' },
+  base: '/sales-website/',
 });
