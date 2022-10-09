@@ -1,9 +1,8 @@
-import { ABOUT, BLOG, PROJECTS, RESUME } from './constants/routes';
+import { PRODUCTS } from './constants/routes';
 import { useRoute } from './hooks/useRoute';
-import Blog from './Blog';
-import AboutMe from './AboutMe';
+import Products from './Products';
 
-type routeType = typeof ABOUT | typeof BLOG | typeof PROJECTS | typeof RESUME;
+type routeType = typeof PRODUCTS;
 
 function getBaseRoutePage(route: string): routeType {
   return route.split('/')[0] as routeType;
@@ -15,15 +14,12 @@ export default function Router() {
 
   return (
     <div
-      class="pb-28 text-xl"
-      style={{ paddingLeft: '27%', paddingRight: '27%' }}
+      class="py-28 text-xl"
+      style={{ paddingLeft: '14%', paddingRight: '14%' }}
     >
       <br />
       <br />
-      {baseRoute === BLOG && <Blog />}
-      {baseRoute === PROJECTS && 'Coming soon!'}
-      {baseRoute === ABOUT && <AboutMe />}
-      {baseRoute === RESUME && 'Coming soon!'}
+      {baseRoute === PRODUCTS && <Products />}
     </div>
   );
 }

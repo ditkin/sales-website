@@ -1,6 +1,6 @@
 import { createContext, ComponentChildren } from 'preact';
 import { useCallback, useMemo, useState } from 'preact/hooks';
-import { BLOG } from './constants/routes';
+import { PRODUCTS } from './constants/routes';
 
 interface HashRouteContextInterface {
   route: string;
@@ -13,7 +13,7 @@ const HashRouteContext = createContext<HashRouteContextInterface>({
 });
 
 function getHashRoute(): string {
-  return window.location.hash.substring(1) || BLOG;
+  return window.location.hash.substring(1) || PRODUCTS;
 }
 
 type ChildrenProps = {

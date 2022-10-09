@@ -11,6 +11,7 @@ body {
   background: lightgray;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'oswald';
 }
 
 * {
