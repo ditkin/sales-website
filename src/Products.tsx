@@ -1,17 +1,37 @@
-import shirt from '../assets/shirt.jpg';
+import gottem from '../assets/gottem.jpeg';
+import closers from '../assets/closers.jpeg';
 
-const BUY_NOW_URL =
-  'https://app.hubspot.com/payments/purchase/hscs_iGrPxYBBeJ2RfAyXOcHyFNSSkdZBrvcQ3xE1XctyVtRxyvvmUN9OJp6PPVWzwg4E?referrer=PAYMENT_LINK';
+const productData = [
+  {
+    image: closers,
+    buyNowUrl:
+      'https://app.hubspot.com/payments/04jIf8ie?referrer=PAYMENT_LINK',
+  },
+  {
+    image: gottem,
+    buyNowUrl:
+      'https://app.hubspot.com/payments/Q-zVMBRcQs-L?referrer=PAYMENT_LINK',
+  },
+];
 
 interface ProductRowProps {
   image: string;
+  buyNowUrl: string;
 }
-function ProductRow({ image }: ProductRowProps) {
+function ProductRow({ image, buyNowUrl }: ProductRowProps) {
   function onClick() {
-    window.open(BUY_NOW_URL, '_blank');
+    window.open(buyNowUrl, '_blank');
   }
   return (
-    <div style={{ display: 'flex', alignItems: 'center', height: 500 }}>
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        height: 500,
+        marginBottom: 24,
+        overflow: 'hidden',
+      }}
+    >
       <div style={{ width: '58%' }}>
         <img src={image} />
       </div>
@@ -25,7 +45,11 @@ function ProductRow({ image }: ProductRowProps) {
 export default function Products() {
   return (
     <div>
-      <ProductRow image={shirt} />
+      {productData.map(product => {
+        return (
+          <ProductRow image={product.image} buyNowUrl={product.buyNowUrl} />
+        );
+      })}
     </div>
   );
 }
