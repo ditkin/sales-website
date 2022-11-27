@@ -1,5 +1,6 @@
 import gottem from '../assets/gottem.jpeg';
 import closers from '../assets/closers.jpeg';
+import { getQueryParams } from './QueryParamContext';
 
 const productData = [
   {
@@ -7,12 +8,14 @@ const productData = [
     buyNowUrl:
       'https://app.hubspot.com/payments/04jIf8ie?referrer=PAYMENT_LINK',
     price: '$35.00',
+    seller: 'd',
   },
   {
     image: gottem,
     buyNowUrl:
       'https://app.hubspot.com/payments/Q-zVMBRcQs-L?referrer=PAYMENT_LINK',
     price: '$50.00',
+    seller: 'd',
   },
 ];
 
@@ -49,9 +52,16 @@ function ProductRow({ image, buyNowUrl, price }: ProductRowProps) {
 }
 
 export default function Products() {
+  const queryParams = getQueryParams();
+  const seller = queryParams.seller;
+
+  const filteredProductData = productData.filter(
+    product => product.seller === seller
+  );
+
   return (
     <div>
-      {productData.map(product => {
+      {filteredProductData.map(product => {
         return <ProductRow {...product} />;
       })}
     </div>
