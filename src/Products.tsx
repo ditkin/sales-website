@@ -1,5 +1,6 @@
 import gottem from '../assets/gottem.jpeg';
 import closers from '../assets/closers.jpeg';
+import alecbald from '../assets/alecbald-preview.jpeg';
 import { getQueryParams } from './QueryParamContext';
 
 const productData = [
@@ -16,6 +17,13 @@ const productData = [
       'https://app.hubspot.com/payments/Q-zVMBRcQs-L?referrer=PAYMENT_LINK',
     price: '$50.00',
     seller: 'd',
+  },
+  {
+    image: alecbald,
+    buyNowUrl:
+      'https://app.hubspot.com/payments/pLFgppatQoKvTD?referrer=PAYMENT_LINK',
+    price: '$30.00',
+    seller: 'i',
   },
 ];
 
